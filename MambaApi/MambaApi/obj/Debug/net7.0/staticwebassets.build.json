@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fnWXS7Ayj1hPPAHepbjOnaLvwzaa9qk40ZpLyPQWruI=",
+  "Source": "MambaApi",
+  "BasePath": "_content/MambaApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
