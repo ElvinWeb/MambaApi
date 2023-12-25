@@ -20,7 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Uploads\workers-images\" />
+    <Folder Include="Database\" />
+    <Folder Include="wwwroot\Uploads\workers-images\" />
   </ItemGroup>
 
 </Project>

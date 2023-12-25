@@ -16,14 +16,17 @@ namespace MambaApi.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        public WorkersController(AppDbContext context, IMapper mapper)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public WorkersController(AppDbContext context, IMapper mapper, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _mapper = mapper;
+            _webHostEnvironment = webHostEnvironment;
         }
 
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<IActionResult> GetOne(int id)
         {
             if (id == null && id <= 0) return NotFound();
@@ -50,11 +53,12 @@ namespace MambaApi.Controllers
         }
 
         [HttpPost("")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create([FromForm] WorkerCreateDto workerCreateDto)
         {
-
             Worker worker = _mapper.Map<Worker>(workerCreateDto);
-
             bool check = true;
 
             if (workerCreateDto.ProfessionIds != null)
@@ -69,7 +73,7 @@ namespace MambaApi.Controllers
                 }
             }
 
-            if (!check)
+            if (check)
             {
                 if (workerCreateDto.ProfessionIds != null)
                 {
@@ -109,7 +113,8 @@ namespace MambaApi.Controllers
             }
 
             string folder = "Uploads/workers-images";
-            string newImgUrl = await Helper.GetFileName(folder, workerCreateDto.ImgFile);
+            string newImgUrl = await Helper.GetFileName(_webHostEnvironment.WebRootPath, folder, workerCreateDto.ImgFile);
+
 
 
             worker.CreatedDate = DateTime.UtcNow.AddHours(4);
@@ -124,10 +129,13 @@ namespace MambaApi.Controllers
             return StatusCode(201, new { message = "Object yaradildi" });
         }
         [HttpPut("")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Update([FromForm] WorkerUpdateDto workerUpdateDto)
         {
 
-            Worker worker = await _context.Workers.FirstOrDefaultAsync(worker => worker.Id == workerUpdateDto.Id);
+            Worker worker = await _context.Workers.Include(worker => worker.WorkerProfessions).FirstOrDefaultAsync(worker => worker.Id == workerUpdateDto.Id);
 
             if (worker == null) return NotFound();
 
@@ -141,7 +149,7 @@ namespace MambaApi.Controllers
                     ProfessionId = professionId,
                 };
 
-                worker.WorkerProfessions.Add(workerProfession);
+                _context.WorkerProfessions.Add(workerProfession);
             }
 
             if (workerUpdateDto.ImgFile != null)
@@ -157,13 +165,13 @@ namespace MambaApi.Controllers
                 }
 
                 string folder = "Uploads/workers-images";
-                string newImgUrl = await Helper.GetFileName(folder, workerUpdateDto.ImgFile);
+                string newImgUrl = await Helper.GetFileName(_webHostEnvironment.WebRootPath, folder, workerUpdateDto.ImgFile);
 
-                string oldFilePath = Path.Combine(folder, worker.ImgUrl);
+                string oldImgPath = Path.Combine(_webHostEnvironment.WebRootPath, folder, worker.ImgUrl);
 
-                if (System.IO.File.Exists(oldFilePath))
+                if (System.IO.File.Exists(oldImgPath))
                 {
-                    System.IO.File.Delete(oldFilePath);
+                    System.IO.File.Delete(oldImgPath);
                 }
 
                 worker.ImgUrl = newImgUrl;
@@ -180,16 +188,26 @@ namespace MambaApi.Controllers
         }
 
         [HttpDelete("/workers/toggleDelete/{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> ToggleDelete(int id)
         {
             if (id == null && id <= 0) return NotFound();
+            string folder = "Uploads/workers-images";
 
-            Profession profession = await _context.Professions.FirstOrDefaultAsync(profession => profession.Id == id);
+            Worker worker = await _context.Workers.FirstOrDefaultAsync(worker => worker.Id == id);
 
-            if (profession == null) return NotFound();
+            if (worker == null) return NotFound();
 
-            profession.IsDeleted = !profession.IsDeleted;
-            profession.DeletedDate = DateTime.UtcNow.AddHours(4);
+            string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, folder, worker.ImgUrl);
+
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+
+            worker.IsDeleted = !worker.IsDeleted;
+            worker.DeletedDate = DateTime.UtcNow.AddHours(4);
 
             await _context.SaveChangesAsync();
 

@@ -21,6 +21,8 @@ namespace MambaApi.Controllers
         }
 
         [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetOne(int id)
         {
             if (id == null && id <= 0) return NotFound();
@@ -47,6 +49,7 @@ namespace MambaApi.Controllers
         }
 
         [HttpPost("")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public async Task<IActionResult> Create([FromForm] ProfessionCreateDto professionCreateDto)
         {
 
@@ -64,6 +67,8 @@ namespace MambaApi.Controllers
         }
 
         [HttpPut("")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Update([FromForm] ProfessionUpdateDto professionUpdateDto)
         {
 
@@ -81,6 +86,8 @@ namespace MambaApi.Controllers
         }
 
         [HttpDelete("/professions/toggleDelete/{id}")]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> ToggleDelete(int id)
         {
             if (id == null && id <= 0) return NotFound();
