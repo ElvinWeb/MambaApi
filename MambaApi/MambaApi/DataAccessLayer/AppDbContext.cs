@@ -18,6 +18,10 @@ namespace MambaApi.DataAccessLayer
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProfessionConfiguration).Assembly);
             base.OnModelCreating(modelBuilder);
         }
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
+        {
+            return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
+        }
     }
 }
 

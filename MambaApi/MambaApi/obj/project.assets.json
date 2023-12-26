@@ -3513,19 +3513,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elvin\\.nuget\\packages\\": {}
+    "C:\\Users\\II novbe\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
+      "projectUniqueName": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
       "projectName": "MambaApi",
-      "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
-      "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\obj\\",
+      "projectPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
+      "packagesPath": "C:\\Users\\II novbe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\II novbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

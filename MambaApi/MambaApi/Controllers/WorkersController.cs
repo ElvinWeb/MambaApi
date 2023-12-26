@@ -42,9 +42,34 @@ namespace MambaApi.Controllers
 
 
         [HttpGet("")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(string? input, int? professionId, int? orderId)
         {
-            List<Worker> workers = await _context.Workers.Where(worker => worker.IsDeleted == false).ToListAsync();
+            IQueryable<Worker> workers = _context.Workers.Include(worker => worker.WorkerProfessions).ThenInclude(worker => worker.Profession).Where(worker => worker.IsDeleted == false).AsQueryable();
+
+            if (input is not null)
+            {
+                workers = workers.Where(worker => worker.FullName.ToLower().Contains(input.ToLower()) || worker.Description.ToLower().Contains(input.ToLower()));
+            }
+
+            if (professionId is not null)
+            {
+                workers = workers.Where(worker => worker.WorkerProfessions.Any(worker => worker.ProfessionId == professionId));
+            }
+
+            if (orderId is not null)
+            {
+                switch (orderId)
+                {
+                    case 1:
+                        workers = workers.OrderByDescending(worker => worker.CreatedDate);
+                        break;
+                    case 2:
+                        workers = workers.OrderBy(worker => worker.FullName);
+                        break;
+                    default:
+                        return BadRequest("orderId value must be correct");
+                }
+            }
 
             IEnumerable<WorkerGetDto> workerGetDtos = workers.Select(worker => new WorkerGetDto { Id = worker.Id, FullName = worker.FullName, Description = worker.Description, MediaUrl = worker.MediaUrl });
 
