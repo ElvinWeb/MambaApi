@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
-using MambaApi.DataAccessLayer;
-using MambaApi.DTO.ProfessionDtos;
-using MambaApi.Entities;
+using MambaApi.Business.DTO.ProfessionDtos;
+using MambaApi.Business.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,12 +11,10 @@ namespace MambaApi.Controllers
     [ApiController]
     public class ProfessionsController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        private readonly IMapper _mapper;
-        public ProfessionsController(AppDbContext context, IMapper mapper)
+        private readonly IProfessionService _professionService;
+        public ProfessionsController(IProfessionService professionService)
         {
-            _context = context;
-            _mapper = mapper;
+            _professionService = professionService;
         }
 
         [HttpGet("{id}")]
@@ -27,11 +24,7 @@ namespace MambaApi.Controllers
         {
             if (id == null && id <= 0) return NotFound();
 
-            Profession profession = await _context.Professions.Where(profession => profession.IsDeleted == false).FirstOrDefaultAsync(profession => profession.Id == id);
-
-            if (profession == null) return NotFound();
-
-            ProfessionGetDto professionGetDto = _mapper.Map<ProfessionGetDto>(profession);
+            ProfessionGetDto professionGetDto = await _professionService.GetByIdAsync(id);
 
             return Ok(professionGetDto);
         }
@@ -40,10 +33,9 @@ namespace MambaApi.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
-            List<Profession> professions = await _context.Professions.Where(profession => profession.IsDeleted == false).ToListAsync();
 
-            IEnumerable<ProfessionGetDto> professionGetDtos = professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
 
+            IEnumerable<ProfessionGetDto> professionGetDtos = await _professionService.GetAllAsync();
 
             return Ok(professionGetDtos);
         }
@@ -53,15 +45,7 @@ namespace MambaApi.Controllers
         public async Task<IActionResult> Create([FromForm] ProfessionCreateDto professionCreateDto)
         {
 
-            Profession profession = _mapper.Map<Profession>(professionCreateDto);
-
-            profession.CreatedDate = DateTime.UtcNow.AddHours(4);
-            profession.UpdatedDate = DateTime.UtcNow.AddHours(4);
-            profession.DeletedDate = DateTime.UtcNow.AddHours(4);
-            profession.IsDeleted = false;
-
-            await _context.Professions.AddAsync(profession);
-            await _context.SaveChangesAsync();
+            await _professionService.CreateAsync(professionCreateDto);
 
             return StatusCode(201, new { message = "Object yaradildi" });
         }
@@ -72,15 +56,7 @@ namespace MambaApi.Controllers
         public async Task<IActionResult> Update([FromForm] ProfessionUpdateDto professionUpdateDto)
         {
 
-            Profession profession = await _context.Professions.FirstOrDefaultAsync(profession => profession.Id == professionUpdateDto.Id);
-
-            if (profession == null) return NotFound();
-
-            profession = _mapper.Map(professionUpdateDto, profession);
-
-            profession.UpdatedDate = DateTime.UtcNow.AddHours(4);
-
-            await _context.SaveChangesAsync();
+            await _professionService.UpdateAsync(professionUpdateDto);
 
             return NoContent();
         }
@@ -90,16 +66,10 @@ namespace MambaApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> ToggleDelete(int id)
         {
+
             if (id == null && id <= 0) return NotFound();
 
-            Profession profession = await _context.Professions.FirstOrDefaultAsync(profession => profession.Id == id);
-
-            if (profession == null) return NotFound();
-
-            profession.IsDeleted = !profession.IsDeleted;
-            profession.DeletedDate = DateTime.UtcNow.AddHours(4);
-
-            await _context.SaveChangesAsync();
+            await _professionService.ToggleDelete(id);
 
             return NoContent();
         }

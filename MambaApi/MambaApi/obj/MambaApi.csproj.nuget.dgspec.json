@@ -1,24 +1,93 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj": {}
+    "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj": {
+    "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
-        "projectName": "MambaApi",
-        "projectPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
-        "packagesPath": "C:\\Users\\II novbe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi\\obj\\",
+        "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
+        "projectName": "MambaApi.Business",
+        "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
+        "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\II novbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj": {
+                "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[11.3.0, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\MambaApi.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\MambaApi.Core.csproj",
+        "projectName": "MambaApi.Core",
+        "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\MambaApi.Core.csproj",
+        "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,6 +101,150 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj",
+        "projectName": "MambaApi.Data",
+        "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj",
+        "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\MambaApi.Core.csproj": {
+                "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Core\\MambaApi.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.14, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
+        "projectName": "MambaApi",
+        "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\MambaApi.csproj",
+        "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj": {
+                "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

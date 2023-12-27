@@ -1,0 +1,12 @@
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.csproj.AssemblyReference.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.AssemblyInfoInputs.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.AssemblyInfo.cs
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.csproj.CoreCompileInputs.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.deps.json
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\refint\MambaApi.Core.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\ref\MambaApi.Core.dll

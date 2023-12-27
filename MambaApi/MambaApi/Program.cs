@@ -1,12 +1,14 @@
 using FluentValidation.AspNetCore;
-using MambaApi.DataAccessLayer;
-using MambaApi.DTO.ProfessionDtos;
+using MambaApi.Business.DTO.ProfessionDtos;
+using MambaApi.Business.Services;
+using MambaApi.Business.Services.Implementations;
+using MambaApi.Core.Repositories;
+using MambaApi.Data.DataAccessLayer;
+using MambaApi.Data.Repositories.Implementations;
 using MambaApi.MappingProfile;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 
 builder.Services.AddControllers().AddFluentValidation(options =>
 {
@@ -15,9 +17,17 @@ builder.Services.AddControllers().AddFluentValidation(options =>
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("myDb1"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("myDb2"));
 });
 builder.Services.AddAutoMapper(typeof(MapProfile));
+
+builder.Services.AddScoped<IWorkerRepository, WorkerRepository>();
+builder.Services.AddScoped<IWorkerService, WorkerService>();
+
+builder.Services.AddScoped<IWorkerProfessionRepository, WorkerProfessionRepository>();
+
+builder.Services.AddScoped<IProfessionRepository, ProfessionRepository>();
+builder.Services.AddScoped<IProfessionService, ProfessionService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -24,4 +24,8 @@
     <Folder Include="wwwroot\Uploads\workers-images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MambaApi.Business\MambaApi.Business.csproj" />
+  </ItemGroup>
+
 </Project>

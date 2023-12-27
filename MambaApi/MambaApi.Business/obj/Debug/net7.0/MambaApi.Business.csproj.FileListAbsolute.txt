@@ -1,0 +1,17 @@
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.csproj.AssemblyReference.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.AssemblyInfoInputs.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.AssemblyInfo.cs
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.csproj.CoreCompileInputs.cache
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Business.deps.json
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Business.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Business.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Data.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Data.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.csproj.CopyComplete
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\refint\MambaApi.Business.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\MambaApi.Business.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Business\obj\Debug\net7.0\ref\MambaApi.Business.dll

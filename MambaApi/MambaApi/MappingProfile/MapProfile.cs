@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using MambaApi.DTO.ProfessionDtos;
-using MambaApi.DTO.WorkerDtos;
-using MambaApi.Entities;
+using MambaApi.Business.DTO.ProfessionDtos;
+using MambaApi.Business.DTO.WorkerDtos;
+using MambaApi.Core.Entities;
 
 namespace MambaApi.MappingProfile
 {

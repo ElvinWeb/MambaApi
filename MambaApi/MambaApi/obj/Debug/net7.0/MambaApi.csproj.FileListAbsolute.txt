@@ -243,3 +243,9 @@ C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\obj\Debug\ne
 C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\obj\Debug\net7.0\MambaApi.pdb
 C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\obj\Debug\net7.0\MambaApi.genruntimeconfig.cache
 C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\obj\Debug\net7.0\ref\MambaApi.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Business.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Data.dll
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Business.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Data.pdb
