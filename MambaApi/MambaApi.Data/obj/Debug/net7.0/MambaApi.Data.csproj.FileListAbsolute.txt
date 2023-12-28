@@ -15,3 +15,20 @@ C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Data\o
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\ref\MambaApi.Data.dll
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Data.runtimeconfig.json
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.genruntimeconfig.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Data.deps.json
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Data.runtimeconfig.json
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Data.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Data.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.csproj.AssemblyReference.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.AssemblyInfoInputs.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.AssemblyInfo.cs
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.csproj.CoreCompileInputs.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.csproj.CopyComplete
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\refint\MambaApi.Data.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\MambaApi.Data.genruntimeconfig.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Data\obj\Debug\net7.0\ref\MambaApi.Data.dll

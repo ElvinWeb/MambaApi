@@ -47,7 +47,7 @@ namespace MambaApi.Business.Services.Implementations
             {
                 foreach (int professionId in workerCreateDto.ProfessionIds)
                 {
-                    if (!_workerProfessionRepository.Table.Any(profession => profession.Id == professionId))
+                    if (!_context.WorkerProfessions.Any(profession => profession.Id == professionId))
                     {
                         check = true;
                         break;

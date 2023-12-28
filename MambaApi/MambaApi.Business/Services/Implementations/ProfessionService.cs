@@ -47,6 +47,7 @@ namespace MambaApi.Business.Services.Implementations
         {
             List<Profession> professions = await _professionRepository.GetAllAsync(profession => profession.IsDeleted == false);
 
+
             IEnumerable<ProfessionGetDto> professionGetDtos =  professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
 
             return professionGetDtos;

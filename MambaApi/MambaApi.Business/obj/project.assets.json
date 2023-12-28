@@ -2902,19 +2902,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\elvin\\.nuget\\packages\\": {}
+    "C:\\Users\\II novbe\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
+      "projectUniqueName": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
       "projectName": "MambaApi.Business",
-      "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
-      "packagesPath": "C:\\Users\\elvin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Business\\obj\\",
+      "projectPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi.Business\\MambaApi.Business.csproj",
+      "packagesPath": "C:\\Users\\II novbe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi.Business\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\elvin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\II novbe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2928,8 +2933,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj": {
-              "projectPath": "C:\\Users\\elvin\\OneDrive\\Documents\\MainProjects\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj"
+            "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj": {
+              "projectPath": "C:\\Users\\II novbe\\Desktop\\FromGitProject\\MambaApi\\MambaApi\\MambaApi.Data\\MambaApi.Data.csproj"
             }
           }
         }

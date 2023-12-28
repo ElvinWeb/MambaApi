@@ -17,7 +17,7 @@ builder.Services.AddControllers().AddFluentValidation(options =>
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("myDb2"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("myDb1"));
 });
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
