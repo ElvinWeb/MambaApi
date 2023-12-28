@@ -16,7 +16,7 @@ namespace MambaApi.Business.Services
         Task ToggleDelete(int id);
         IQueryable<Profession> GetProfessionTable();
         Task<ProfessionGetDto> GetByIdAsync(int id);
-        Task<IEnumerable<ProfessionGetDto>> GetAllAsync();
+        Task<IEnumerable<ProfessionGetDto>> GetAllAsync(string? input);
         Task UpdateAsync([FromForm] ProfessionUpdateDto professionUpdateDto);
     }
 }

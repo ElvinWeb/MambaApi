@@ -43,7 +43,7 @@ namespace MambaApi.Business.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync(string? input, int? id)
+        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync(string? input)
         {
             IQueryable<Profession> professions = _professionRepository.GetAllAsyncAsQueryable(profession => profession.IsDeleted == false);
 
@@ -51,15 +51,8 @@ namespace MambaApi.Business.Services.Implementations
             {
                 if (input is not null)
                 {
-                    professions = professions.Where(worker => worker.Name.ToLower().Contains(input.ToLower()));
+                    professions = professions.Where(profession => profession.Name.ToLower().Contains(input.ToLower()));
                 }
-
-                if (id is not null)
-                {
-                    professions = professions.Where(worker => worker.WorkerProfessions.Any(worker => worker.ProfessionId == id));
-                }
-
-              
             }
 
             IEnumerable<ProfessionGetDto> professionGetDtos = professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
