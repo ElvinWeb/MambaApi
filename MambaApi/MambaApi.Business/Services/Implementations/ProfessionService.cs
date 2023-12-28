@@ -43,14 +43,33 @@ namespace MambaApi.Business.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync()
+        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync(string? input, int? id)
         {
-            List<Profession> professions = await _professionRepository.GetAllAsync(profession => profession.IsDeleted == false);
+            IQueryable<Profession> professions = _professionRepository.GetAllAsyncAsQueryable(profession => profession.IsDeleted == false);
 
+            if (professions is not null)
+            {
+                if (input is not null)
+                {
+                    professions = professions.Where(worker => worker.Name.ToLower().Contains(input.ToLower()));
+                }
 
-            IEnumerable<ProfessionGetDto> professionGetDtos =  professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
+                if (id is not null)
+                {
+                    professions = professions.Where(worker => worker.WorkerProfessions.Any(worker => worker.ProfessionId == id));
+                }
+
+              
+            }
+
+            IEnumerable<ProfessionGetDto> professionGetDtos = professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
 
             return professionGetDtos;
+        }
+
+        public Task<IEnumerable<ProfessionGetDto>> GetAllAsync()
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<ProfessionGetDto> GetByIdAsync(int id)

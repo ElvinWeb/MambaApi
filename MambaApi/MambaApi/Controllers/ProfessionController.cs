@@ -41,7 +41,7 @@ namespace MambaApi.Controllers
 
 
         [HttpGet("")]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(string? name)
         {
 
             IEnumerable<ProfessionGetDto> professionGetDtos = await _professionService.GetAllAsync();

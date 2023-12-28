@@ -16,6 +16,7 @@ namespace MambaApi.Core.Repositories
         void Delete(TEntity entity);
         Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>>? expression, params string[]? includes);
         Task<List<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>>? expression, params string[]? includes);
+        IQueryable<TEntity> GetAllAsyncAsQueryable(Expression<Func<TEntity, bool>>? expression, params string[]? includes);
         Task<int> CommitChanges();
 
     }

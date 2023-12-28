@@ -47,7 +47,7 @@ namespace MambaApi.Business.Services.Implementations
             {
                 foreach (int professionId in workerCreateDto.ProfessionIds)
                 {
-                    if (!_context.WorkerProfessions.Any(profession => profession.Id == professionId))
+                    if (!_workerProfessionRepository.Table.Any(profession => profession.Id == professionId))
                     {
                         check = true;
                         break;
@@ -55,7 +55,7 @@ namespace MambaApi.Business.Services.Implementations
                 }
             }
 
-            if (!check)
+            if (check)
             {
                 if (workerCreateDto.ProfessionIds != null)
                 {
@@ -116,7 +116,8 @@ namespace MambaApi.Business.Services.Implementations
 
         public async Task<IEnumerable<WorkerGetDto>> GetAllAsync(string? input, int? professionId, int? orderId)
         {
-            IQueryable<Worker> workers = _workerRepository.Table.Include(worker => worker.WorkerProfessions).Where(worker => worker.IsDeleted == false).AsQueryable();
+            IQueryable<Worker> workers = _workerRepository.GetAllAsyncAsQueryable(worker => worker.IsDeleted == false, "WorkerProfessions");
+            
             if (workers is not null)
             {
                 if (input is not null)

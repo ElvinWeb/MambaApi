@@ -1,11 +1,11 @@
 using FluentValidation.AspNetCore;
 using MambaApi.Business.DTO.ProfessionDtos;
+using MambaApi.Business.MappingProfile;
 using MambaApi.Business.Services;
 using MambaApi.Business.Services.Implementations;
 using MambaApi.Core.Repositories;
 using MambaApi.Data.DataAccessLayer;
 using MambaApi.Data.Repositories.Implementations;
-using MambaApi.MappingProfile;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
