@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation.Validators;
+using MambaApi.Business.CustomExceptions.Common;
 using MambaApi.Business.DTO.WorkerDtos;
 using MambaApi.Business.Helpers;
 using MambaApi.Core.Entities;
@@ -40,7 +41,7 @@ namespace MambaApi.Business.Services.Implementations
         public async Task CreateAsync([FromForm] WorkerCreateDto workerCreateDto)
         {
             Worker worker = _mapper.Map<Worker>(workerCreateDto);
-            bool check = true;
+            bool check = false;
 
             if (workerCreateDto.ProfessionIds != null)
             {
@@ -48,7 +49,7 @@ namespace MambaApi.Business.Services.Implementations
                 {
                     if (!_context.WorkerProfessions.Any(profession => profession.Id == professionId))
                     {
-                        check = false;
+                        check = true;
                         break;
                     }
                 }
@@ -72,7 +73,7 @@ namespace MambaApi.Business.Services.Implementations
             }
             else
             {
-                throw new NullReferenceException();
+                throw new notFound("professionId is not found");
 
             }
 
@@ -80,17 +81,17 @@ namespace MambaApi.Business.Services.Implementations
             {
                 if (workerCreateDto.ImgFile.ContentType != "image/png" && workerCreateDto.ImgFile.ContentType != "image/jpeg")
                 {
-                    throw new NullReferenceException();
+                    throw new InvalidImageContentTypeOrSize("enter the correct image contenttype!");
                 }
 
                 if (workerCreateDto.ImgFile.Length > 1048576)
                 {
-                    throw new NullReferenceException();
+                    throw new InvalidImageContentTypeOrSize("image size must be less than 1mb!");
                 }
             }
             else
             {
-                throw new NullReferenceException();
+                throw new InvalidImage("Image is required!");
             }
 
             string folder = "Uploads/workers-images";
@@ -100,6 +101,7 @@ namespace MambaApi.Business.Services.Implementations
             worker.CreatedDate = DateTime.UtcNow.AddHours(4);
             worker.UpdatedDate = DateTime.UtcNow.AddHours(4);
             worker.DeletedDate = DateTime.UtcNow.AddHours(4);
+
             worker.ImgUrl = newImgUrl;
             worker.IsDeleted = false;
 
@@ -115,32 +117,34 @@ namespace MambaApi.Business.Services.Implementations
         public async Task<IEnumerable<WorkerGetDto>> GetAllAsync(string? input, int? professionId, int? orderId)
         {
             IQueryable<Worker> workers = _workerRepository.Table.Include(worker => worker.WorkerProfessions).Where(worker => worker.IsDeleted == false).AsQueryable();
-
-            if (input is not null)
+            if (workers is not null)
             {
-                workers = workers.Where(worker => worker.FullName.ToLower().Contains(input.ToLower()) || worker.Description.ToLower().Contains(input.ToLower()));
-            }
-
-            if (professionId is not null)
-            {
-                workers = workers.Where(worker => worker.WorkerProfessions.Any(worker => worker.ProfessionId == professionId));
-            }
-
-            if (orderId is not null)
-            {
-                switch (orderId)
+                if (input is not null)
                 {
-                    case 1:
-                        workers = workers.OrderByDescending(worker => worker.CreatedDate);
-                        break;
-                    case 2:
-                        workers = workers.OrderBy(worker => worker.Salary);
-                        break;
-                    case 3:
-                        workers = workers.OrderBy(worker => worker.FullName);
-                        break;
-                    default:
-                        throw new NullReferenceException("orderId value must be correct");
+                    workers = workers.Where(worker => worker.FullName.ToLower().Contains(input.ToLower()) || worker.Description.ToLower().Contains(input.ToLower()));
+                }
+
+                if (professionId is not null)
+                {
+                    workers = workers.Where(worker => worker.WorkerProfessions.Any(worker => worker.ProfessionId == professionId));
+                }
+
+                if (orderId is not null)
+                {
+                    switch (orderId)
+                    {
+                        case 1:
+                            workers = workers.OrderByDescending(worker => worker.CreatedDate);
+                            break;
+                        case 2:
+                            workers = workers.OrderBy(worker => worker.Salary);
+                            break;
+                        case 3:
+                            workers = workers.OrderBy(worker => worker.FullName);
+                            break;
+                        default:
+                            throw new notFound("enter the correct order value!");
+                    }
                 }
             }
 
@@ -154,7 +158,7 @@ namespace MambaApi.Business.Services.Implementations
 
             Worker worker = await _workerRepository.GetByIdAsync(worker => worker.Id == id && worker.IsDeleted == false);
 
-            if (worker == null) throw new NullReferenceException();
+            if (worker == null) throw new notFound("worker couldn't be null!");
 
             WorkerGetDto workerGetDto = _mapper.Map<WorkerGetDto>(worker);
 
@@ -172,9 +176,9 @@ namespace MambaApi.Business.Services.Implementations
         {
             string folder = "Uploads/workers-images";
 
-            Worker worker = await _workerRepository.GetByIdAsync(worker => worker.Id == id && worker.IsDeleted == false);
+            Worker worker = await _workerRepository.GetByIdAsync(worker => worker.Id == id);
 
-            if (worker == null) throw new NullReferenceException();
+            if (worker == null) throw new notFound("worker couldn't be null!");
 
             string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, folder, worker.ImgUrl);
 
@@ -193,7 +197,7 @@ namespace MambaApi.Business.Services.Implementations
         {
             Worker worker = await _workerRepository.GetByIdAsync(worker => worker.Id == workerUpdateDto.Id && worker.IsDeleted == false, "WorkerProfessions.Profession");
 
-            if (worker == null) throw new NullReferenceException();
+            if (worker == null) throw new notFound("worker couldn't be null!");
 
             worker.WorkerProfessions.RemoveAll(wp => !workerUpdateDto.ProfessionIds.Contains(wp.ProfessionId));
 
@@ -212,12 +216,12 @@ namespace MambaApi.Business.Services.Implementations
             {
                 if (workerUpdateDto.ImgFile.ContentType != "image/png" && workerUpdateDto.ImgFile.ContentType != "image/jpeg")
                 {
-                    throw new NullReferenceException();
+                    throw new InvalidImageContentTypeOrSize("enter the correct image contenttype!");
                 }
 
                 if (workerUpdateDto.ImgFile.Length > 1048576)
                 {
-                    throw new NullReferenceException();
+                    throw new InvalidImageContentTypeOrSize("image size must be less than 1mb!");
                 }
 
                 string folder = "Uploads/workers-images";
@@ -235,7 +239,6 @@ namespace MambaApi.Business.Services.Implementations
             }
 
             worker = _mapper.Map(workerUpdateDto, worker);
-            worker.IsDeleted = !worker.IsDeleted;
             worker.UpdatedDate = DateTime.UtcNow.AddHours(4);
 
             await _workerRepository.CommitChanges();

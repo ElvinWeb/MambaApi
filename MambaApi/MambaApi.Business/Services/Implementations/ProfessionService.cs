@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MambaApi.Business.CustomExceptions.Common;
 using MambaApi.Business.DTO.ProfessionDtos;
 using MambaApi.Core.Entities;
 using MambaApi.Core.Repositories;
@@ -56,7 +57,7 @@ namespace MambaApi.Business.Services.Implementations
 
             Profession profession = await _professionRepository.GetByIdAsync(profession => profession.Id == id && profession.IsDeleted == false);
 
-            if (profession == null) throw new NullReferenceException();
+            if (profession == null) throw new notFound("profession couldn't be null!");
 
             ProfessionGetDto professionGetDto = _mapper.Map<ProfessionGetDto>(profession);
 
@@ -75,7 +76,7 @@ namespace MambaApi.Business.Services.Implementations
 
             Profession profession = await _professionRepository.GetByIdAsync(profession => profession.Id == id);
 
-            if (profession == null) throw new NullReferenceException();
+            if (profession == null) throw new notFound("profession couldn't be null!");
 
             profession.IsDeleted = !profession.IsDeleted;
             profession.DeletedDate = DateTime.UtcNow.AddHours(4);
@@ -88,10 +89,9 @@ namespace MambaApi.Business.Services.Implementations
 
             Profession profession = await _professionRepository.GetByIdAsync(profession => profession.Id == professionUpdateDto.Id);
 
-            if (profession == null) throw new NullReferenceException();
+            if (profession == null) throw new notFound("profession couldn't be null!");
 
             profession = _mapper.Map(professionUpdateDto, profession);
-
             profession.UpdatedDate = DateTime.UtcNow.AddHours(4);
 
             await _professionRepository.CommitChanges();

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MambaApi.Business.CustomExceptions.Common;
 using MambaApi.Business.DTO.ProfessionDtos;
 using MambaApi.Business.Services;
 using Microsoft.AspNetCore.Http;
@@ -23,8 +24,17 @@ namespace MambaApi.Controllers
         public async Task<IActionResult> GetOne(int id)
         {
             if (id == null && id <= 0) return NotFound();
+            ProfessionGetDto professionGetDto = null;
 
-            ProfessionGetDto professionGetDto = await _professionService.GetByIdAsync(id);
+            try
+            {
+                professionGetDto = await _professionService.GetByIdAsync(id);
+            }
+            catch (notFound ex)
+            {
+                return NotFound(ex.Message);
+            }
+
 
             return Ok(professionGetDto);
         }
@@ -33,7 +43,6 @@ namespace MambaApi.Controllers
         [HttpGet("")]
         public async Task<IActionResult> GetAll()
         {
-
 
             IEnumerable<ProfessionGetDto> professionGetDtos = await _professionService.GetAllAsync();
 
@@ -55,8 +64,14 @@ namespace MambaApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> Update([FromForm] ProfessionUpdateDto professionUpdateDto)
         {
-
-            await _professionService.UpdateAsync(professionUpdateDto);
+            try
+            {
+                await _professionService.UpdateAsync(professionUpdateDto);
+            }
+            catch (notFound ex)
+            {
+                return NotFound(ex.Message);
+            }
 
             return NoContent();
         }
@@ -69,7 +84,15 @@ namespace MambaApi.Controllers
 
             if (id == null && id <= 0) return NotFound();
 
-            await _professionService.ToggleDelete(id);
+            try
+            {
+
+                await _professionService.ToggleDelete(id);
+            }
+            catch (notFound ex)
+            {
+                return NotFound(ex.Message);
+            }
 
             return NoContent();
         }

@@ -26,6 +26,28 @@ namespace MambaApi.Data.DataAccessLayer
         }
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
+            var datas = ChangeTracker.Entries<BaseEntity>();
+
+            foreach (var data in datas)
+            {
+                BaseEntity entity = data.Entity;
+
+                switch (data.State)
+                {
+                    case EntityState.Deleted:
+                        entity.DeletedDate = DateTime.UtcNow.AddHours(4);
+                        break;
+                    case EntityState.Added:
+                        entity.CreatedDate = DateTime.UtcNow.AddHours(4);
+                        break;
+                    case EntityState.Modified:
+                        entity.UpdatedDate = DateTime.UtcNow.AddHours(4);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);
         }
     }
