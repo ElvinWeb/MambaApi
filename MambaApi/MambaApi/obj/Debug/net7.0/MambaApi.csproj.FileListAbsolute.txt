@@ -249,3 +249,9 @@ C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\De
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Business.pdb
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Core.pdb
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Data.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Business.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Data.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Business.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi\bin\Debug\net7.0\MambaApi.Data.pdb

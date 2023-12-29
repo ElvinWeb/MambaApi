@@ -10,3 +10,15 @@ C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\o
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\refint\MambaApi.Core.dll
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.pdb
 C:\Users\elvin\OneDrive\Documents\MainProjects\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\ref\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.deps.json
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\bin\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.csproj.AssemblyReference.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.AssemblyInfoInputs.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.AssemblyInfo.cs
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.csproj.CoreCompileInputs.cache
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\refint\MambaApi.Core.dll
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\MambaApi.Core.pdb
+C:\Users\II novbe\Desktop\FromGitProject\MambaApi\MambaApi\MambaApi.Core\obj\Debug\net7.0\ref\MambaApi.Core.dll

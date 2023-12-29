@@ -2,14 +2,18 @@
 using MambaApi.Business.DTO.ProfessionDtos;
 using MambaApi.Business.DTO.WorkerDtos;
 using MambaApi.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MambaApi.MappingProfile
+namespace MambaApi.Business.MappingProfile
 {
     public class MapProfile : Profile
     {
         public MapProfile()
         {
-
             CreateMap<ProfessionCreateDto, Profession>().ReverseMap();
             CreateMap<ProfessionGetDto, Profession>().ReverseMap();
             CreateMap<ProfessionUpdateDto, Profession>().ReverseMap();

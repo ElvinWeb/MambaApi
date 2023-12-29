@@ -43,12 +43,12 @@ namespace MambaApi.Data.Repositories.Implementations
             return expression is not null ? await query.Where(expression).ToListAsync() : await query.ToListAsync();
         }
 
-        //public async Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>>? expression, params string[]? includes)
-        //{
-        //    var query = GetQuery(includes);
+        public IQueryable<TEntity> GetAllAsyncAsQueryable(Expression<Func<TEntity, bool>>? expression, params string[]? includes)
+        {
+            var query = GetQuery(includes);
 
-        //    return expression is not null ? await query.Where(expression).ToListAsync() : await query.ToListAsync();
-        //}
+            return expression is not null ? query.Where(expression).AsQueryable() : query.AsQueryable();
+        }
 
         public async Task<TEntity> GetByIdAsync(Expression<Func<TEntity, bool>>? expression, params string[]? includes)
         {

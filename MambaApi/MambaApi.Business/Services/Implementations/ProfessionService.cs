@@ -43,11 +43,19 @@ namespace MambaApi.Business.Services.Implementations
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync()
+        public async Task<IEnumerable<ProfessionGetDto>> GetAllAsync(string? input)
         {
-            List<Profession> professions = await _professionRepository.GetAllAsync(profession => profession.IsDeleted == false);
+            IQueryable<Profession> professions = _professionRepository.GetAllAsyncAsQueryable(profession => profession.IsDeleted == false);
 
-            IEnumerable<ProfessionGetDto> professionGetDtos =  professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
+            if (professions is not null)
+            {
+                if (input is not null)
+                {
+                    professions = professions.Where(profession => profession.Name.ToLower().Contains(input.ToLower()));
+                }
+            }
+
+            IEnumerable<ProfessionGetDto> professionGetDtos = professions.Select(profession => new ProfessionGetDto { Id = profession.Id, Name = profession.Name });
 
             return professionGetDtos;
         }

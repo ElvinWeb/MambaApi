@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using FluentValidation.Validators;
 using MambaApi.Business.CustomExceptions.Common;
 using MambaApi.Business.DTO.WorkerDtos;
 using MambaApi.Business.Helpers;
 using MambaApi.Core.Entities;
 using MambaApi.Core.Repositories;
-using MambaApi.Data.DataAccessLayer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,19 +21,16 @@ namespace MambaApi.Business.Services.Implementations
         private readonly IMapper _mapper;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IWorkerProfessionRepository _workerProfessionRepository;
-        private readonly AppDbContext _context;
 
         public WorkerService(IWorkerRepository workerRepository,
                                 IMapper mapper,
                                 IWebHostEnvironment webHostEnvironment,
-                                IWorkerProfessionRepository workerProfessionRepository,
-                                AppDbContext context)
+                                IWorkerProfessionRepository workerProfessionRepository)
         {
             _workerRepository = workerRepository;
             _mapper = mapper;
             _webHostEnvironment = webHostEnvironment;
             _workerProfessionRepository = workerProfessionRepository;
-            _context = context;
         }
 
         public async Task CreateAsync([FromForm] WorkerCreateDto workerCreateDto)
@@ -55,7 +50,7 @@ namespace MambaApi.Business.Services.Implementations
                 }
             }
 
-            if (!check)
+            if (check)
             {
                 if (workerCreateDto.ProfessionIds != null)
                 {
@@ -81,7 +76,7 @@ namespace MambaApi.Business.Services.Implementations
             {
                 if (workerCreateDto.ImgFile.ContentType != "image/png" && workerCreateDto.ImgFile.ContentType != "image/jpeg")
                 {
-                    throw new InvalidImageContentTypeOrSize("enter the correct image contenttype!");
+                    throw new InvalidImageContentTypeOrSize("enter the correct image ContentType!");
                 }
 
                 if (workerCreateDto.ImgFile.Length > 1048576)
@@ -116,7 +111,8 @@ namespace MambaApi.Business.Services.Implementations
 
         public async Task<IEnumerable<WorkerGetDto>> GetAllAsync(string? input, int? professionId, int? orderId)
         {
-            IQueryable<Worker> workers = _workerRepository.Table.Include(worker => worker.WorkerProfessions).Where(worker => worker.IsDeleted == false).AsQueryable();
+            IQueryable<Worker> workers = _workerRepository.GetAllAsyncAsQueryable(worker => worker.IsDeleted == false, "WorkerProfessions");
+
             if (workers is not null)
             {
                 if (input is not null)
@@ -148,7 +144,9 @@ namespace MambaApi.Business.Services.Implementations
                 }
             }
 
-            IEnumerable<WorkerGetDto> workerGetDtos = workers.Select(worker => new WorkerGetDto { Id = worker.Id, FullName = worker.FullName, Description = worker.Description, MediaUrl = worker.MediaUrl, Salary = worker.Salary });
+            string profession = String.Empty;
+
+            IEnumerable<WorkerGetDto> workerGetDtos = workers.Select(worker => new WorkerGetDto { Id = worker.Id, FullName = worker.FullName, Description = worker.Description, MediaUrl = worker.MediaUrl, Salary = worker.Salary, ImgUrl = worker.ImgUrl, Profession = profession });
 
             return workerGetDtos;
         }
@@ -182,9 +180,9 @@ namespace MambaApi.Business.Services.Implementations
 
             string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, folder, worker.ImgUrl);
 
-            if (System.IO.File.Exists(fullPath))
+            if (File.Exists(fullPath))
             {
-                System.IO.File.Delete(fullPath);
+                File.Delete(fullPath);
             }
 
             worker.IsDeleted = !worker.IsDeleted;
@@ -229,9 +227,9 @@ namespace MambaApi.Business.Services.Implementations
 
                 string oldImgPath = Path.Combine(_webHostEnvironment.WebRootPath, folder, worker.ImgUrl);
 
-                if (System.IO.File.Exists(oldImgPath))
+                if (File.Exists(oldImgPath))
                 {
-                    System.IO.File.Delete(oldImgPath);
+                    File.Delete(oldImgPath);
                 }
 
                 worker.ImgUrl = newImgUrl;
